@@ -44,7 +44,7 @@
     <div id="controls">
       <button class="btn" @click="rndColor">GENERATE</button>
     </div>
-    <div id="css-container">
+    <div @click="copyCssToClipboard" id="css-container">
       <div id="css-text-field">
         <p id="css-text">{{ cssText }}</p>
       </div>
@@ -68,7 +68,6 @@
 </template>
 
 <script>
-/* import axios from "axios"; */
 import nearestColor from "nearest-color";
 import colorNameList from "color-name-list";
 import invert from "invert-color";
@@ -120,17 +119,7 @@ export default {
       this.getColornames();
       this.getInverted();
     },
-    /*     async getColornames() {
-      const response = await axios({
-        url: this.url,
-      });
 
-      this.colName1 = response.data.colors[0].name;
-      this.colName1 = response.data.colors[1].name;
-      if (!response.data) {
-        return;
-      }
-    }, */
     getNearest() {
       // nearestColor need objects {name => hex} as input
       const colors = colorNameList.reduce(
@@ -143,15 +132,11 @@ export default {
       this.colName1 = nearestOne.name;
       this.colName2 = nearestTwo.name;
     },
-    getInverted() {
-      const invert1 = invert(this.colorOne);
-      console.log(invert1 + "hei");
-    },
   },
   mounted() {
     this.colorOne = "#808080";
     this.colorTwo = "#808080";
-    this.cssText = "hello. click the button above to generate gradient.";
+    this.cssText = "hello. click button ☝️ to generate gradient.";
   },
 };
 </script>
@@ -197,7 +182,6 @@ p {
   cursor: pointer;
 }
 .btn:hover {
-  /*   background-color: #219ebc; */
   background-color: #c3c3c3;
 }
 .btn:active {
