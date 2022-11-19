@@ -1,0 +1,12 @@
+html {
+  font-size: 0.4vh;
+  overflow: hidden;
+  font-family: "Poppins-Regular";
+  src: url("Poppins-Regular.ttf") format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
